@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>">
+    <meta name="theme-color" content="#a789d4">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title> Mohammad Arham | Python Backend Engineer </title>
+</head>
+
+<body>
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">Arham</a>
+
+        <div class="nav__menu">
+            <ul class="nav__list">
+                <li class="nav__item ">
+                    <a href="#home" class="nav__link">
+                        <i class='bx bx-home'></i>
+                    </a>
+                </li>
+
+                <li class="nav__item ">
+                    <a href="#about" class="nav__link">
+                        <i class='bx bx-user'></i>
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#skills" class="nav__link">
+                        <i class='bx bx-book'></i>
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#work" class="nav__link">
+                        <i class='bx bx-briefcase-alt-2'></i>
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link">
+                        <i class='bx bx-message-square-dots'></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
+
+    </nav>
+</header>
+
+<main class="main">
+    <section class="home section" id="home">
+        <div class="home__container container grid">
+            <div class="home__data">
+                <span class="home__greeting">Hello, I'm</span>
+                <h1 class="home__name">Mohammad Arham</h1>
+                <h3 class="home__education">Python Backend Engineer · Data Engineering · Cloud & DevOps</h3>
+                <p class="home__tagline">
+                    I build secure APIs, cloud-native backend systems, and data pipelines that improve latency,
+                    reliability, and business visibility.
+                </p>
+
+                <div class="home__button">
+                    <a download="" href="assets/pdf/arham_resume.pdf" class="button button--ghost">
+                        View Resume
+                    </a>
+
+                    <a href="#work" class="button">Featured Work</a>
+                </div>
+
+                <div class="home__highlights">
+                    <span>60% DB shrink via S3 migration</span>
+                    <span>15-minute analytics freshness</span>
+                    <span>sub-50ms p95 FastAPI responses</span>
+                </div>
+            </div>
+
+            <div class="home__handle">
+                <img src="assets/img/arham.png" alt="Mohammad Arham" class="home__img">
+            </div>
+
+            <div class="home__social">
+                <a href="https://www.linkedin.com/in/mohammad-arham-4ab292248" target="_blank" class="home__social-link">
+                    <i class='bx bxl-linkedin'></i>
+                </a>
+                <a href="https://github.com/MohdArham" target="_blank" class="home__social-link">
+                    <i class='bx bxl-github'></i>
+                </a>
+                <a href="https://www.instagram.com/ar.ham_5/?igshid=ZDc4ODBmNjlmNQ%3D%3D" target="_blank" class="home__social-link" aria-label="Instagram">
+                    <i class='bx bxl-instagram'></i>
+                </a>
+                <a href="mailto:mohdarham94@gmail.com" class="home__social-link">
+                    <i class='bx bx-envelope'></i>
+                </a>
+            </div>
+
+            <a href="#about" class="home__scroll">
+                <i class='bx bx-mouse home__scroll-icon'></i>
+                <span class="home__scroll-name">Scroll Down</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="about section" id="about">
+        <span class="section__subtitle">Professional Summary</span>
+        <h2 class="section__title">About Me</h2>
+
+        <div class="about__container container grid">
+<!--            <img src="assets/img/arham_bnw.png" alt="Arham" class="about__img">-->
+             <div class="about__visual" aria-hidden="true">
+                    <i class='bx bx-code-curly'></i>
+                    <span>API Security</span>
+                    <span>ETL/ELT Pipelines</span>
+                    <span>Microservices</span>
+                    <span>Cloud-Native Systems</span>
+                </div>
+
+            <div class="about__data">
+                <div class="about__info">
+                    <div class="about__box">
+                        <i class='bx bx-award about__icon'></i>
+                        <h3 class="about__title">Experience</h3>
+                        <span class="about__subtitle">1.5+ Years</span>
+                    </div>
+                    <div class="about__box">
+                        <i class='bx bx-data about__icon'></i>
+                        <h3 class="about__title">Impact</h3>
+                        <span class="about__subtitle">60% DB Reduction</span>
+                    </div>
+                    <div class="about__box">
+                        <i class='bx bx-timer about__icon'></i>
+                        <h3 class="about__title">Data Freshness</h3>
+                        <span class="about__subtitle">15-min Interval</span>
+                    </div>
+                </div>
+
+                <p class="about__description">
+                    Results-driven Python Backend Engineer with 1.5+ years of experience designing scalable
+                    backend systems, high-performance REST APIs, and automated data platforms. My work spans Flask,
+                    FastAPI, PostgreSQL, Apache Airflow, Odoo, and AWS services such as EC2, S3, Athena, Redshift,
+                    Lambda, and Secrets Manager. I focus on backend reliability, API security, cloud delivery, and
+                    turning operational problems into measurable engineering wins.
+                </p>
+
+                <a href="#contact" class="button about__button-contact">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact section" id="impact">
+        <span class="section__subtitle">Measured Outcomes</span>
+        <h2 class="section__title">Impact Snapshot</h2>
+
+        <div class="impact__container container grid">
+            <article class="impact__card">
+                <span class="impact__value">60%</span>
+                <h3 class="impact__title">Database Footprint Reduced</h3>
+                <p class="impact__description">
+                    Migrated binary storage from PostgreSQL to AWS S3 to cut database size and improve backup efficiency.
+                </p>
+            </article>
+
+            <article class="impact__card">
+                <span class="impact__value">15 min</span>
+                <h3 class="impact__title">Pipeline Freshness</h3>
+                <p class="impact__description">
+                    Re-architected batch workflows into incremental Airflow pipelines for executive BI dashboards.
+                </p>
+            </article>
+
+            <article class="impact__card">
+                <span class="impact__value">&lt;50ms</span>
+                <h3 class="impact__title">FastAPI p95 Response</h3>
+                <p class="impact__description">
+                    Tuned indexed query paths, schema validation, and async request flow for analytics APIs.
+                </p>
+            </article>
+
+            <article class="impact__card">
+                <span class="impact__value">55%</span>
+                <h3 class="impact__title">Observability Improvement</h3>
+                <p class="impact__description">
+                    Added Airflow callbacks, SNS alerts, and more visible pipeline status for quicker incident response.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="skills section" id="skills">
+        <span class="section__subtitle">Technical Skills</span>
+        <h2 class="section__title">My Stack</h2>
+
+        <div class="skills__container container grid">
+            <div class="skills__content">
+                <h3 class="skills__title">Backend, APIs & Data</h3>
+
+                <div class="skills__box">
+                    <div class="skills__group">
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">Python / SQL</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">Flask / FastAPI / DRF</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">PostgreSQL / MySQL / Redshift</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="skills__group">
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">Airflow / ETL / AWS Glue</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">JWT / OAuth 2.0 / RBAC</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">System Design / Microservices / Async APIs</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills__content">
+                <h3 class="skills__title">Cloud, DevOps & Tools</h3>
+
+                <div class="skills__box">
+                    <div class="skills__group">
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">AWS (EC2, S3, Lambda, Athena)</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">Docker / Jenkins / CI-CD</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">Nginx / Certbot / HTTPS</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="skills__group">
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">Git / GitHub / Linux</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">Odoo ORM / ERP Customization / Integrations</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <i class='bx bxs-badge-check'></i>
+
+                            <div>
+                                <h3 class="skills__name">Postman / Swagger / OpenAPI</h3>
+                                <span class="skills__level">Advanced</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="services section">
+        <span class="section__subtitle">Work Experience</span>
+        <h2 class="section__title">Binary Semantics Ltd</h2>
+
+        <div class="services__container container grid">
+            <div class="services__card">
+                <div class="serv">
+                    <h3 class="services__title">Backend APIs & <br> Security</h3>
+
+                    <span class="services__button">
+                            See More <i class='bx bx-right-arrow services__icon'></i>
+                        </span>
+                </div>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <i class='bx bx-x services__modal-close'></i>
+
+                        <h3 class="services__modal-title">Associate Software Developer</h3>
+
+                        <p class="services__modal-description">
+                            Aug 2024 - Present | Gurugram, India
+                        </p>
+
+                        <ul class="services__modal-list">
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Designed and deployed scalable Flask and FastAPI services with PostgreSQL for analytics and business workflows.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Implemented JWT auth, RBAC, OAuth 2.0, and route-wise rate limiting.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Built clean REST endpoints consumed by analytics platforms and internal business applications.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Focused on API security, maintainable service contracts, and production-grade backend reliability.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Integrated Rasa NLU chatbot via REST webhooks for faster support resolution.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services__card">
+                <h3 class="services__title">Data Pipelines & <br> Analytics</h3>
+
+                <span class="services__button">
+                        See More <i class='bx bx-right-arrow services__icon'></i>
+                    </span>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <i class='bx bx-x services__modal-close'></i>
+
+                        <h3 class="services__modal-title">Pipeline Architecture</h3>
+
+                        <p class="services__modal-description">
+                            Python, Airflow, Athena, Redshift, PostgreSQL
+                        </p>
+
+                        <ul class="services__modal-list">
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Architected a config-driven, incremental ETL pipeline using Python and Apache Airflow.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Reduced data latency from daily batch loads to near real-time 15-minute intervals.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Replicated Odoo PostgreSQL data to Amazon Athena and Redshift for BI dashboards.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Automated database dump workflows and failure alerts with Airflow callbacks and AWS SNS.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Improved pipeline observability and reduced manual monitoring effort across recurring data jobs.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services__card">
+                <h3 class="services__title">Cloud, Infra & <br> CI/CD</h3>
+
+                <span class="services__button">
+                        See More <i class='bx bx-right-arrow services__icon'></i>
+                    </span>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <i class='bx bx-x services__modal-close'></i>
+
+                        <h3 class="services__modal-title">Infrastructure & Delivery</h3>
+
+                        <p class="services__modal-description">
+                            AWS, Docker, Jenkins, Nginx, Certbot
+                        </p>
+
+                        <ul class="services__modal-list">
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Migrated binary file storage from PostgreSQL to AWS S3, shrinking database size by ~60%.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Containerized all backend services with Docker and built Jenkins CI/CD pipelines.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Deployed all services on EC2 behind Nginx with SSL via Certbot and custom domain routing.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Managed secrets through AWS Secrets Manager and supported reliable production deployments.
+                                </p>
+                            </li>
+
+                            <li class="services__modal-item">
+                                <i class='bx bx-check-circle'></i>
+                                <p class="services__modal-info">
+                                    Worked across cloud delivery, CI/CD automation, and operational optimization instead of treating infra as an afterthought.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="work section" id="work">
+            <span class="section__subtitle">Projects</span>
+            <h2 class="section__title">Featured Work</h2>
+
+            <div class="work__filters">
+                <span class="work__item active-work" data-filter='all'>All</span>
+                <span class="work__item" data-filter='.api'>API</span>
+                <span class="work__item" data-filter='.data'>Data</span>
+                <span class="work__item" data-filter='.cloud'>Cloud</span>
+            </div>
+
+            <div class="work__container container grid">
+                <div class="work__card mix api cloud">
+                    <i class='bx bx-line-chart work__symbol'></i>
+                    <h3 class="work__title">FastAPI Microservice - Real-Time Analytics</h3>
+                    <p class="work__tech">FastAPI · Pydantic v2 · PostgreSQL</p>
+                    <p class="work__summary">Async analytics API built for low-latency dashboard traffic and production deployment on AWS.</p>
+                    <button type="button" class="work__open">See More <i class='bx bx-right-arrow work__icon'></i></button>
+                    <div class="work__modal">
+                        <div class="work__modal-content">
+                            <i class='bx bx-x work__modal-close'></i>
+                            <h3 class="work__modal-title">FastAPI Microservice - Real-Time Analytics</h3>
+                            <p class="work__modal-description">Async FastAPI service built for high-throughput analytics APIs.</p>
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Stack: FastAPI, Async Python, Pydantic v2, PostgreSQL.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Delivered sub-50ms p95 API response times.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Optimized query plans, connection pooling, and index strategy for dashboard traffic.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Deployed behind Nginx on EC2 with Docker, HTTPS, and health-check endpoints.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Used strict schema validation with Pydantic v2 to keep API contracts predictable and maintainable.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Reduced average database query time by roughly 40% through selective indexing and query-plan analysis.</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work__card mix api">
+                    <i class='bx bx-shield-quarter work__symbol'></i>
+                    <h3 class="work__title">Flask JWT Task Management API</h3>
+                    <p class="work__tech">Flask · JWT · OAuth 2.0 · Docker</p>
+                    <p class="work__summary">Production-ready task API focused on auth hardening, clean validation, and maintainable endpoint design.</p>
+                    <button type="button" class="work__open">See More <i class='bx bx-right-arrow work__icon'></i></button>
+                    <div class="work__modal">
+                        <div class="work__modal-content">
+                            <i class='bx bx-x work__modal-close'></i>
+                            <h3 class="work__modal-title">Flask JWT Task Management API</h3>
+                            <p class="work__modal-description">Production-ready REST API with secure authentication and authorization.</p>
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Stack: Flask, Flask-RESTful, JWT, OAuth 2.0, PostgreSQL, Docker.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Implemented JWT token lifecycle, RBAC, and rate limiting.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Added structured validation, centralized error handling, and Swagger/OpenAPI documentation.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Designed for secure multi-role access and production-friendly API maintainability.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Implemented refresh-token rotation and endpoint-level permission controls for stronger session security.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Containerized the service with Docker to support reproducible local development and deployment workflows.</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work__card mix data cloud">
+                    <i class='bx bx-git-branch work__symbol'></i>
+                    <h3 class="work__title">PostgreSQL to Redshift ETL Pipeline</h3>
+                    <p class="work__tech">Airflow · Athena · Redshift · Incremental Sync</p>
+                    <p class="work__summary">Config-driven pipeline framework for incremental sync, backfills, alerting, and warehouse delivery.</p>
+                    <button type="button" class="work__open">See More <i class='bx bx-right-arrow work__icon'></i></button>
+                    <div class="work__modal">
+                        <div class="work__modal-content">
+                            <i class='bx bx-x work__modal-close'></i>
+                            <h3 class="work__modal-title">PostgreSQL to Redshift ETL Pipeline</h3>
+                            <p class="work__modal-description">Config-driven Airflow pipeline for analytics-grade data movement.</p>
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Stack: Airflow, Athena, Redshift, PostgreSQL, AWS SNS.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Implemented incremental sync and backfill workflows.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Improved freshness from daily batches to 15-minute intervals.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Added alert callbacks and schema-aware configuration for smoother operations.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Designed the framework around modular configuration so new tables and sync rules could be added without DAG rewrites.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Served as the primary data source pattern for internal BI dashboards and analytics reporting.</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work__card mix cloud">
+                    <i class='bx bx-bar-chart-alt-2 work__symbol'></i>
+                    <h3 class="work__title">Flask Analytics Dashboard Backend</h3>
+                    <p class="work__tech">Flask · PostgreSQL · Role-Based APIs</p>
+                    <p class="work__summary">Backend service layer for dashboards, filtered reports, and metrics-heavy internal analytics workflows.</p>
+                    <button type="button" class="work__open">See More <i class='bx bx-right-arrow work__icon'></i></button>
+                    <div class="work__modal">
+                        <div class="work__modal-content">
+                            <i class='bx bx-x work__modal-close'></i>
+                            <h3 class="work__modal-title">Flask Analytics Dashboard Backend</h3>
+                            <p class="work__modal-description">Backend API layer for dashboard metrics, charts, and filtered reports.</p>
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Stack: Flask, Python, PostgreSQL.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Built role-based endpoints and optimized query routes.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Integrated with real-time business dashboards and analytics consumers.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Focused on filtered reporting, clean response contracts, and performance-oriented queries.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Structured endpoints around dashboard use-cases such as metrics, chart feeds, and parameterized reporting queries.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Emphasized maintainable backend layering so analytics features could be extended without API regressions.</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work__card mix cloud">
+                    <i class='bx bx-cloud-upload work__symbol'></i>
+                    <h3 class="work__title">S3 Migration & Database Optimization</h3>
+                    <p class="work__tech">PostgreSQL to S3 · 60% DB Shrink</p>
+                    <p class="work__summary">Storage migration initiative that reduced database weight and improved core application performance.</p>
+                    <button type="button" class="work__open">See More <i class='bx bx-right-arrow work__icon'></i></button>
+                    <div class="work__modal">
+                        <div class="work__modal-content">
+                            <i class='bx bx-x work__modal-close'></i>
+                            <h3 class="work__modal-title">S3 Migration & Database Optimization</h3>
+                            <p class="work__modal-description">Infrastructure optimization by offloading binary storage.</p>
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Migrated file/blob storage from PostgreSQL to AWS S3.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Reduced core DB size by around 60%.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Improved query performance, backup efficiency, and operational maintainability.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Delivered a cleaner separation between relational data and object storage responsibilities.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Reduced pressure on the primary database by moving non-relational binary storage to the right infrastructure layer.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Improved long-term scalability by aligning storage design with backend access patterns and operational costs.</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work__card mix api data">
+                    <i class='bx bx-network-chart work__symbol'></i>
+                    <h3 class="work__title">Odoo ERP + KYC + FASTag Integrations</h3>
+                    <p class="work__tech">Odoo ORM · ULIP/PAN/DL · Google Maps</p>
+                    <p class="work__summary">Business workflow automation combining ERP customization with compliance and real-time tracking integrations.</p>
+                    <button type="button" class="work__open">See More <i class='bx bx-right-arrow work__icon'></i></button>
+                    <div class="work__modal">
+                        <div class="work__modal-content">
+                            <i class='bx bx-x work__modal-close'></i>
+                            <h3 class="work__modal-title">Odoo ERP + KYC + FASTag Integrations</h3>
+                            <p class="work__modal-description">ERP customization and third-party integration for operations workflows.</p>
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Customized Odoo modules and APIs for business operations.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Integrated ULIP, PAN, and DL verification services for compliance.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Built Google Maps-based FASTag vehicle tracking workflows.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Reduced manual intervention across operations-heavy business processes.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Used Odoo ORM extensions and custom APIs to bridge ERP workflows with third-party compliance services.</p></li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i><p class="services__modal-info">Improved operational visibility by connecting logistics workflows with real-time tracking and KYC verification flows.</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+    <section class="architecture section" id="architecture">
+        <span class="section__subtitle">How I Build</span>
+        <h2 class="section__title">Engineering Focus</h2>
+
+        <div class="architecture__container container grid">
+            <article class="architecture__card">
+                <i class='bx bx-lock-alt architecture__icon'></i>
+                <h3 class="architecture__title">Secure API Design</h3>
+                <p class="architecture__description">
+                    I design backend services with JWT auth, OAuth 2.0, RBAC, rate limiting, clean validation, and
+                    explicit error contracts so APIs remain secure and easy to consume.
+                </p>
+                <ul class="architecture__list">
+                    <li>Flask and FastAPI service design</li>
+                    <li>Token lifecycle and permission control</li>
+                    <li>Swagger/OpenAPI-ready endpoints</li>
+                </ul>
+            </article>
+
+            <article class="architecture__card">
+                <i class='bx bx-transfer-alt architecture__icon'></i>
+                <h3 class="architecture__title">Data Pipelines That Operate Cleanly</h3>
+                <p class="architecture__description">
+                    I build ETL and ELT systems that support incremental sync, backfills, alerting, and analytics
+                    warehouse delivery without constant manual intervention.
+                </p>
+                <ul class="architecture__list">
+                    <li>Airflow DAG orchestration and scheduling</li>
+                    <li>Athena, Redshift, and PostgreSQL movement</li>
+                    <li>SNS alerts and observable pipeline states</li>
+                </ul>
+            </article>
+
+            <article class="architecture__card">
+                <i class='bx bx-cloud architecture__icon'></i>
+                <h3 class="architecture__title">Cloud Delivery With Operational Discipline</h3>
+                <p class="architecture__description">
+                    I treat deployment and infrastructure as part of the product, using Docker, Jenkins, Nginx, SSL,
+                    and AWS services to ship backend systems with reliability in mind.
+                </p>
+                <ul class="architecture__list">
+                    <li>EC2 deployment, HTTPS, and routing</li>
+                    <li>Containerized services and CI/CD pipelines</li>
+                    <li>Secrets handling and production readiness</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="testimonial section">
+        <span class="section__subtitle">Education & Foundations</span>
+        <h2 class="section__title">Academic Snapshot</h2>
+
+        <div class="testimonial__container container swiper">
+            <div class="swiper-wrapper">
+                <div class="testimonial__card swiper-slide">
+                    <h3 class="testimonial__name">Jamia Hamdard University</h3>
+                    <p class="testimonial__description">
+                        <strong>B.Tech in Computer Science and Engineering</strong> <br>
+                        2020 - 2024 | New Delhi, India <br>
+                        CGPA: 8.19 / 10.0
+                    </p>
+                </div>
+
+                <div class="testimonial__card swiper-slide">
+                    <h3 class="testimonial__name">Relevant Coursework</h3>
+                    <p class="testimonial__description">
+                        Data Structures & Algorithms, Database Management, Operating Systems, Software Engineering, Computer Networks.
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </section>
+
+    <section class="contact section" id="contact">
+        <span class="section__subtitle">Get in touch</span>
+        <h3 class="section__title">Contact Me</h3>
+
+        <div class="contact__container container grid">
+            <div class="contact__content">
+                <h3 class="contact__title contact__title-info">Talk to me</h3>
+
+                <div class="contact__info">
+                    <div class="contact__card">
+                        <i class='bx bx-mail-send contact__card-icon'></i>
+                        <h3 class="contact__card-title">Email</h3>
+                        <span class="contact__card-data">mohdarham94@gmail.com</span>
+
+                        <a href="mailto:mohdarham94@gmail.com" target="_blank" class="contact__button">
+                            Write Me <i class='bx bx-right-arrow contact__button-icon'></i>
+                        </a>
+                    </div>
+
+                    <div class="contact__card">
+                        <i class='bx bxl-whatsapp contact__card-icon'></i>
+                        <h3 class="contact__card-title">Whatsapp</h3>
+                        <span class="contact__card-data">+91 9557385029</span>
+
+                        <a href="https://api.whatsapp.com/send?phone=919557385029&text=Hey Arham!" target="_blank"
+                           class="contact__button">
+                            Message Me <i class='bx bx-right-arrow contact__button-icon'></i>
+                        </a>
+                    </div>
+
+                    <div class="contact__card">
+                        <i class='bx bxl-linkedin contact__card-icon'></i>
+                        <h3 class="contact__card-title">LinkedIn</h3>
+                        <span class="contact__card-data">Mohammad Arham</span>
+
+                        <a href="https://www.linkedin.com/in/mohammad-arham-4ab292248" target="_blank" class="contact__button">
+                            Connect <i class='bx bx-right-arrow contact__button-icon'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact__content">
+                <h3 class="contact__title contact__title-form">Write Me your Message</h3>
+
+                <form action="" class="contact__form">
+                    <div class="contact__form-div">
+                        <label for="" class="contact__form-tag">Name</label>
+                        <input type="text" placeholder="Enter name" class="contact__form-input">
+                    </div>
+
+                    <div class="contact__form-div">
+                        <label for="" class="contact__form-tag">Mail</label>
+                        <input type="text" placeholder="Enter email" class="contact__form-input">
+                    </div>
+
+                    <div class="contact__form-div contact__form-area">
+                        <label for="" class="contact__form-tag">Message</label>
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Write your Message"
+                                  class="contact__form-input "></textarea>
+                    </div>
+
+                    <button class="button">
+                        Send Message
+                    </button>
+                </form>
+
+            </div>
+
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__container container">
+        <h1 class="footer__title">Mohammad Arham</h1>
+
+        <ul class="footer__list">
+            <li class="footer__item">
+                <a href="#home" class="footer__link">Home</a>
+            </li>
+            <li class="footer__item">
+                <a href="#about" class="footer__link">About</a>
+            </li>
+            <li class="footer__item">
+                <a href="#skills" class="footer__link">Skills</a>
+            </li>
+            <li class="footer__item">
+                <a href="#work" class="footer__link">Projects</a>
+            </li>
+            <li class="footer__item">
+                <a href="#contact" class="footer__link">Contact</a>
+            </li>
+        </ul>
+
+        <ul class="footer__social">
+            <li class="footer__social-item">
+                <a href="https://www.linkedin.com/in/mohammad-arham-4ab292248" target="_blank" class="footer__social-link">
+                    <i class='bx bxl-linkedin footer__social-icon'></i>
+                </a>
+            </li>
+            <li class="footer__social-item">
+                <a href="https://github.com/MohdArham" target="_blank" class="footer__social-link">
+                    <i class='bx bxl-github footer__social-icon'></i>
+                </a>
+            </li>
+               <li class="footer__social-item">
+                    <a href="https://www.instagram.com/ar.ham_5/?igshid=ZDc4ODBmNjlmNQ%3D%3D" target="_blank" class="footer__social-link" aria-label="Instagram">
+                        <i class='bx bxl-instagram footer__social-icon'></i>
+                    </a>
+                </li>
+            <li class="footer__social-item">
+                <a href="mailto:mohdarham94@gmail.com" class="footer__social-link">
+                    <i class='bx bx-envelope footer__social-icon'></i>
+                </a>
+            </li>
+        </ul>
+
+        <span class="footer__copy">
+                &#169; Mohammad Arham · Python Backend Engineer · Data Engineering · Cloud & DevOps
+            </span>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/mixitup.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>
