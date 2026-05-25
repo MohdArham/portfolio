@@ -286,6 +286,42 @@ if (contactForm) {
 
     const submitBtn = contactForm.querySelector("button");
     const originalText = submitBtn.textContent;
+
+    // 1. Anti-abuse Cooldown rate limiting check (60-second limit between successful emails)
+    const lastSubmitTime = localStorage.getItem("portfolio-last-submit");
+    const now = Date.now();
+    if (lastSubmitTime && (now - lastSubmitTime < 60000)) {
+      const secondsLeft = Math.ceil((60000 - (now - lastSubmitTime)) / 1000);
+      submitBtn.textContent = `Wait ${secondsLeft}s before resending`;
+      submitBtn.style.backgroundColor = "#e67e22"; // Orange warning color
+      submitBtn.style.color = "#ffffff";
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        submitBtn.style.backgroundColor = "";
+        submitBtn.style.color = "";
+      }, 3000);
+      return;
+    }
+
+    // 2. Enforce minimum message character length check (min 10 chars)
+    if (messageInput.value.trim().length < 10) {
+      submitBtn.textContent = "Min 10 characters required";
+      submitBtn.style.backgroundColor = "#c0392b"; // Red error color
+      submitBtn.style.color = "#ffffff";
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        submitBtn.style.backgroundColor = "";
+        submitBtn.style.color = "";
+      }, 3000);
+      return;
+    }
+
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
 
@@ -306,6 +342,9 @@ if (contactForm) {
         submitBtn.style.backgroundColor = "#27ae60"; // green success color
         submitBtn.style.color = "#ffffff";
         contactForm.reset();
+
+        // Enforce the submission cooldown timestamp on successful submission
+        localStorage.setItem("portfolio-last-submit", Date.now());
       } else {
         console.error(json);
         submitBtn.textContent = "Error! Try again.";
