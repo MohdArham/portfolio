@@ -2,80 +2,65 @@
 function scrollHeader() {
   const header = document.getElementById("header");
   // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
-  if (this.scrollY >= 50) header.classList.add("scroll-header");
+  if (window.scrollY >= 50) header.classList.add("scroll-header");
   else header.classList.remove("scroll-header");
 }
 window.addEventListener("scroll", scrollHeader);
 
-/*=============== SERVICES MODALS ===============*/
-function bindModalGroup(modalSelector, triggerSelector, closeSelector) {
-  const modalViews = document.querySelectorAll(modalSelector);
-  const modalBtns = document.querySelectorAll(triggerSelector);
-  const modalClose = document.querySelectorAll(closeSelector);
+/*=============== UNIFIED MODALS HANDLER ===============*/
+const modalTriggers = document.querySelectorAll(".services__button, .work__open");
+const activeModals = [];
 
-  modalBtns.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      modalViews[index]?.classList.add("active-modal");
-    });
+function closeAllModals() {
+  activeModals.forEach((modal) => {
+    modal.classList.remove("active-modal");
   });
-
-  modalClose.forEach((closeButton) => {
-    closeButton.addEventListener("click", () => {
-      modalViews.forEach((modalView) => {
-        modalView.classList.remove("active-modal");
-      });
-    });
-  });
-}
-
-bindModalGroup(".services__modal", ".services__button", ".services__modal-close");
-
-/*=============== WORK MODALS ===============*/
-const workCards = document.querySelectorAll(".work__card");
-const workModalViews = [];
-
-function closeWorkModals() {
-  workModalViews.forEach((modalView) => {
-    modalView.classList.remove("active-modal");
-  });
+  activeModals.length = 0;
   document.body.style.overflow = "";
 }
 
-workCards.forEach((card) => {
-  const openButton = card.querySelector(".work__open");
-  const modalView = card.querySelector(".work__modal");
-  const closeButton = modalView?.querySelector(".work__modal-close");
+modalTriggers.forEach((trigger) => {
+  // Find the modal in the same card container
+  const card = trigger.closest(".services__card, .work__card");
+  const modal = card?.querySelector(".services__modal, .work__modal");
+  const closeBtn = modal?.querySelector(".services__modal-close, .work__modal-close");
 
-  if (modalView) {
-    document.body.appendChild(modalView);
-    workModalViews.push(modalView);
-  }
+  if (!modal) return;
 
-  openButton?.addEventListener("click", () => {
-    closeWorkModals();
-    modalView?.classList.add("active-modal");
+  // Move modal to body to prevent z-index/parent overflow bugs
+  document.body.appendChild(modal);
+
+  trigger.addEventListener("click", () => {
+    closeAllModals();
+    modal.classList.add("active-modal");
     document.body.style.overflow = "hidden";
+    if (!activeModals.includes(modal)) {
+      activeModals.push(modal);
+    }
   });
 
-  closeButton?.addEventListener("click", () => {
-    closeWorkModals();
+  closeBtn?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    closeAllModals();
   });
 
-  modalView?.addEventListener("click", (event) => {
-    if (event.target === modalView) {
-      closeWorkModals();
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeAllModals();
     }
   });
 });
 
+// Close modals on Escape key
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    closeWorkModals();
+    closeAllModals();
   }
 });
 
 /*=============== WORK FILTER ===============*/
 const workLinks = document.querySelectorAll(".work__item");
+const workCards = document.querySelectorAll(".work__card");
 
 function activeWork(workLink) {
   workLinks.forEach((wl) => {
@@ -98,15 +83,14 @@ workLinks.forEach((wl) => {
       card.classList.toggle("work__card--hidden", !shouldShow);
     });
 
-    closeWorkModals();
+    closeAllModals();
   });
 });
 
 /*=============== SWIPER TESTIMONIAL ===============*/
-
 let swiperTestimonial = new Swiper(".testimonial__container", {
   spaceBetween: 24,
-  loop: true,
+  loop: false, // Disabled loop since we only have 2 cards to avoid layout glitching
   grabCursor: true,
 
   pagination: {
@@ -126,11 +110,10 @@ let swiperTestimonial = new Swiper(".testimonial__container", {
 });
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-
 const sections = document.querySelectorAll("section[id]");
 
 function scrollActive() {
-  const scrollY = window.pageYOffset;
+  const scrollY = window.scrollY;
 
   sections.forEach((current) => {
     const sectionHeight = current.offsetHeight,
@@ -156,37 +139,30 @@ window.addEventListener("scroll", scrollActive);
 /*=============== LIGHT DARK THEME ===============*/
 const themeButton = document.getElementById("theme-button");
 const lightTheme = "light-theme";
-const iconTheme = "bx-sun";
 
-// Previously selected topic (if user selected)
+// Check local storage
 const selectedTheme = localStorage.getItem("selected-theme");
-const selectedIcon = localStorage.getItem("selected-icon");
 
-// We obtain the current theme that the interface has by validating the light-theme class
-const getCurrentTheme = () =>
-  document.body.classList.contains(lightTheme) ? "dark" : "light";
-const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme) ? "bx bx-moon" : "bx bx-sun";
-
-// We validate if the user previously chose a topic
-if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the light
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    lightTheme
-  );
-  themeButton.classList[selectedIcon === "bx bx-moon" ? "add" : "remove"](
-    iconTheme
-  );
+// Apply theme based on stored value (default to dark if none stored)
+if (selectedTheme === "light") {
+  document.body.classList.add(lightTheme);
+  themeButton.classList.remove("bx-moon");
+  themeButton.classList.add("bx-sun");
+} else {
+  document.body.classList.remove(lightTheme);
+  themeButton.classList.remove("bx-sun");
+  themeButton.classList.add("bx-moon");
 }
 
-// Activate / deactivate the theme manually with the button
+// Toggle theme on button click
 themeButton.addEventListener("click", () => {
-  // Add or remove the light / icon theme
   document.body.classList.toggle(lightTheme);
-  themeButton.classList.toggle(iconTheme);
-  // We save the theme and the current icon that the user chose
-  localStorage.setItem("selected-theme", getCurrentTheme());
-  localStorage.setItem("selected-icon", getCurrentIcon());
+  themeButton.classList.toggle("bx-moon");
+  themeButton.classList.toggle("bx-sun");
+
+  // Save current selection
+  const currentTheme = document.body.classList.contains(lightTheme) ? "light" : "dark";
+  localStorage.setItem("selected-theme", currentTheme);
 });
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
@@ -215,7 +191,7 @@ sr.reveal(`.home__social, .home__scroll`, {
   origin: "bottom",
 });
 
-sr.reveal(`.about__img`, {
+sr.reveal(`.about__visual`, {
   delay: 100,
   origin: "left",
   scale: 0.9,
@@ -244,7 +220,7 @@ sr.reveal(`.skills__content`, {
   distance: "30px",
 });
 
-sr.reveal(`.services__title, services__button`, {
+sr.reveal(`.services__title, .services__button`, {
   delay: 100,
   scale: 0.9,
   origin: "top",
@@ -287,9 +263,70 @@ sr.reveal(`.contact__form, .contact__title-form`, {
   distance: "30px",
 });
 
-sr.reveal(`.footer, footer__container`, {
+sr.reveal(`.footer, .footer__container`, {
   delay: 100,
   scale: 0.9,
   origin: "bottom",
   distance: "30px",
 });
+
+/*=============== CONTACT FORM SUBMISSION ===============*/
+const contactForm = document.querySelector(".contact__form");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const nameInput = document.getElementById("contact-name");
+    const emailInput = document.getElementById("contact-email");
+    const messageInput = document.getElementById("contact-message");
+
+    if (!nameInput.value || !emailInput.value || !messageInput.value) {
+      return;
+    }
+
+    const submitBtn = contactForm.querySelector("button");
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    // Use Web3Forms API to send actual email.
+    const web3formsAccessKey = "0db6676d-dd71-4f32-a2f7-619e578dd97f";
+
+    const formData = new FormData(contactForm);
+    formData.append("access_key", web3formsAccessKey);
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    })
+    .then(async (response) => {
+      const json = await response.json();
+      if (response.ok) {
+        submitBtn.textContent = "Message Sent! ✓";
+        submitBtn.style.backgroundColor = "#27ae60"; // green success color
+        submitBtn.style.color = "#ffffff";
+        contactForm.reset();
+      } else {
+        console.error(json);
+        submitBtn.textContent = "Error! Try again.";
+        submitBtn.style.backgroundColor = "#c0392b"; // red error color
+        submitBtn.style.color = "#ffffff";
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      submitBtn.textContent = "Network Error!";
+      submitBtn.style.backgroundColor = "#c0392b"; // red error color
+      submitBtn.style.color = "#ffffff";
+    })
+    .finally(() => {
+      // Restore button after 3 seconds
+      setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        submitBtn.style.backgroundColor = "";
+        submitBtn.style.color = "";
+      }, 3000);
+    });
+  });
+}

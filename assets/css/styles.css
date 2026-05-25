@@ -644,6 +644,8 @@ body.light-theme {
   padding: 4.5rem 1.5rem 2.5rem;
   border-radius: 1.5rem;
   position: relative;
+  width: 100%;
+  max-width: 500px;
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
 }
@@ -1208,7 +1210,8 @@ body.light-theme {
 
   .about__description {
     padding: 1rem 5rem;
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     margin: 0 auto 2rem auto;
   }
 
@@ -1259,7 +1262,8 @@ body.light-theme {
   }
 
   .testimonial__container {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     margin: auto;
   }
 
@@ -1414,7 +1418,8 @@ body.light-theme {
   }
 
   .testimonial__container {
-    width: 970px;
+    max-width: 968px;
+    width: 100%;
   }
 
   .architecture__container {
@@ -1448,18 +1453,43 @@ body.light-theme {
     padding: 0.4rem;
     border-radius: 0.5rem;
   }
-}
 
+  .home__container {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    column-gap: 3rem;
+    padding-left: 5.5rem;
+    padding-right: 4.5rem;
+  }
 
+  .home__social {
+    left: 1.5rem;
+  }
 
+  .home__scroll {
+    right: 1.5rem;
+  }
 
+  .home__data {
+    text-align: left;
+  }
 
+  .home__tagline {
+    margin: 0 0 2rem 0;
+  }
 
+  .home__button {
+    justify-content: flex-start;
+  }
 
+  .home__highlights {
+    justify-content: flex-start;
+  }
 
-.about__visual {
+  .about__visual {
     width: 350px;
   }
+}
 
 .about__visual {
   width: 220px;
