@@ -10,6 +10,13 @@ window.addEventListener("scroll", scrollHeader);
 /*=============== UNIFIED MODALS HANDLER ===============*/
 const modalTriggers = document.querySelectorAll(".services__button, .work__open");
 const activeModals = [];
+let lastFocusedElement = null;
+
+function getFocusableElements(modal) {
+  return modal.querySelectorAll(
+    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  );
+}
 
 function closeAllModals() {
   activeModals.forEach((modal) => {
@@ -17,6 +24,9 @@ function closeAllModals() {
   });
   activeModals.length = 0;
   document.body.style.overflow = "";
+
+  lastFocusedElement?.focus();
+  lastFocusedElement = null;
 }
 
 modalTriggers.forEach((trigger) => {
@@ -32,11 +42,15 @@ modalTriggers.forEach((trigger) => {
 
   trigger.addEventListener("click", () => {
     closeAllModals();
+    lastFocusedElement = trigger;
     modal.classList.add("active-modal");
     document.body.style.overflow = "hidden";
     if (!activeModals.includes(modal)) {
       activeModals.push(modal);
     }
+    // Delayed: focusing immediately can silently fail while the modal is
+    // still resolving out of visibility:hidden, so wait past the CSS transition.
+    setTimeout(() => closeBtn?.focus(), 50);
   });
 
   closeBtn?.addEventListener("click", (event) => {
@@ -51,10 +65,32 @@ modalTriggers.forEach((trigger) => {
   });
 });
 
-// Close modals on Escape key
+// Close modals on Escape key, trap Tab focus inside the open modal
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeAllModals();
+    return;
+  }
+
+  if (event.key !== "Tab" || activeModals.length === 0) {
+    return;
+  }
+
+  const modal = activeModals[activeModals.length - 1];
+  const focusable = getFocusableElements(modal);
+  if (focusable.length === 0) {
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
   }
 });
 
@@ -138,7 +174,14 @@ window.addEventListener("scroll", scrollActive);
 
 /*=============== LIGHT DARK THEME ===============*/
 const themeButton = document.getElementById("theme-button");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const lightTheme = "light-theme";
+const darkThemeColor = "#a789d4";
+const lightThemeColor = "#fafaff";
+
+function setThemeColorMeta(isLight) {
+  themeColorMeta?.setAttribute("content", isLight ? lightThemeColor : darkThemeColor);
+}
 
 // Check local storage
 const selectedTheme = localStorage.getItem("selected-theme");
@@ -153,6 +196,7 @@ if (selectedTheme === "light") {
   themeButton.classList.remove("bx-sun");
   themeButton.classList.add("bx-moon");
 }
+setThemeColorMeta(document.body.classList.contains(lightTheme));
 
 // Toggle theme on button click
 themeButton.addEventListener("click", () => {
@@ -163,6 +207,7 @@ themeButton.addEventListener("click", () => {
   // Save current selection
   const currentTheme = document.body.classList.contains(lightTheme) ? "light" : "dark";
   localStorage.setItem("selected-theme", currentTheme);
+  setThemeColorMeta(currentTheme === "light");
 });
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
@@ -273,6 +318,12 @@ sr.reveal(`.footer, .footer__container`, {
 /*=============== CONTACT FORM SUBMISSION ===============*/
 const contactForm = document.querySelector(".contact__form");
 if (contactForm) {
+  const formStatus = document.getElementById("form-status");
+
+  const announce = (message) => {
+    if (formStatus) formStatus.textContent = message;
+  };
+
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -292,10 +343,12 @@ if (contactForm) {
     const now = Date.now();
     if (lastSubmitTime && (now - lastSubmitTime < 60000)) {
       const secondsLeft = Math.ceil((60000 - (now - lastSubmitTime)) / 1000);
-      submitBtn.textContent = `Wait ${secondsLeft}s before resending`;
-      submitBtn.style.backgroundColor = "#e67e22"; // Orange warning color
+      const message = `Wait ${secondsLeft}s before resending`;
+      submitBtn.textContent = message;
+      submitBtn.style.backgroundColor = "#b35900"; // Orange warning color (AA-contrast with white text)
       submitBtn.style.color = "#ffffff";
       submitBtn.disabled = true;
+      announce(message);
 
       setTimeout(() => {
         submitBtn.textContent = originalText;
@@ -308,10 +361,12 @@ if (contactForm) {
 
     // 2. Enforce minimum message character length check (min 10 chars)
     if (messageInput.value.trim().length < 10) {
-      submitBtn.textContent = "Min 10 characters required";
+      const message = "Min 10 characters required";
+      submitBtn.textContent = message;
       submitBtn.style.backgroundColor = "#c0392b"; // Red error color
       submitBtn.style.color = "#ffffff";
       submitBtn.disabled = true;
+      announce(message);
 
       setTimeout(() => {
         submitBtn.textContent = originalText;
@@ -324,6 +379,7 @@ if (contactForm) {
 
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
+    announce("Sending your message...");
 
     // Use Web3Forms API to send actual email.
     const web3formsAccessKey = "0db6676d-dd71-4f32-a2f7-619e578dd97f";
@@ -339,9 +395,10 @@ if (contactForm) {
       const json = await response.json();
       if (response.ok) {
         submitBtn.textContent = "Message Sent! ✓";
-        submitBtn.style.backgroundColor = "#27ae60"; // green success color
+        submitBtn.style.backgroundColor = "#1e7e46"; // green success color (AA-contrast with white text)
         submitBtn.style.color = "#ffffff";
         contactForm.reset();
+        announce("Message sent successfully.");
 
         // Enforce the submission cooldown timestamp on successful submission
         localStorage.setItem("portfolio-last-submit", Date.now());
@@ -350,6 +407,7 @@ if (contactForm) {
         submitBtn.textContent = "Error! Try again.";
         submitBtn.style.backgroundColor = "#c0392b"; // red error color
         submitBtn.style.color = "#ffffff";
+        announce("There was an error sending your message. Please try again.");
       }
     })
     .catch((error) => {
@@ -357,6 +415,7 @@ if (contactForm) {
       submitBtn.textContent = "Network Error!";
       submitBtn.style.backgroundColor = "#c0392b"; // red error color
       submitBtn.style.color = "#ffffff";
+      announce("Network error. Please check your connection and try again.");
     })
     .finally(() => {
       // Restore button after 3 seconds

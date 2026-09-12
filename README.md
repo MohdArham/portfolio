@@ -25,6 +25,8 @@ The site highlights:
 ```text
 .
 ├── index.html
+├── robots.txt
+├── sitemap.xml
 ├── assets/
 │   ├── css/
 │   │   ├── styles.css
@@ -32,11 +34,9 @@ The site highlights:
 │   ├── js/
 │   │   ├── main.js
 │   │   ├── swiper-bundle.min.js
-│   │   ├── mixitup.min.js
 │   │   └── scrollreveal.min.js
 │   ├── img/
-│   ├── pdf/
-│   └── favicons/
+│   └── pdf/
 └── README.md
 ```
 

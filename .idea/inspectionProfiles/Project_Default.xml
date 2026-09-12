@@ -1,0 +1,73 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="href" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="fastapi" />
+          <option value="uvicorn" />
+          <option value="sqlalchemy" />
+          <option value="redis" />
+          <option value="celery" />
+          <option value="chardet" />
+          <option value="requests" />
+          <option value="Babel" />
+          <option value="decorator" />
+          <option value="docutils" />
+          <option value="ebaysdk" />
+          <option value="html2text" />
+          <option value="Jinja2" />
+          <option value="libsass" />
+          <option value="Mako" />
+          <option value="MarkupSafe" />
+          <option value="mock" />
+          <option value="num2words" />
+          <option value="ofxparse" />
+          <option value="passlib" />
+          <option value="pydot" />
+          <option value="pyparsing" />
+          <option value="PyPDF2" />
+          <option value="pyserial" />
+          <option value="python-dateutil" />
+          <option value="pytz" />
+          <option value="pyusb" />
+          <option value="qrcode" />
+          <option value="reportlab" />
+          <option value="suds-jurko" />
+          <option value="vobject" />
+          <option value="XlsxWriter" />
+          <option value="python-stdnum" />
+          <option value="xlwt" />
+          <option value="xlrd" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStatementEffectInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyStubPackagesAdvertiser" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="boto3" />
+          <option value="pandas" />
+          <option value="docutils" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="bool.strip" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

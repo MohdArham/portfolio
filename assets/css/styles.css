@@ -1,6 +1,3 @@
-/*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-
 /*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
@@ -111,8 +108,37 @@ img {
   height: auto;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*=============== ACCESSIBILITY ===============*/
+a:focus-visible,
+button:focus-visible,
+.work__item:focus-visible {
+  outline: 2px solid var(--first-color);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+.contact__form-input:focus-visible {
+  outline: 2px solid var(--first-color);
+  outline-offset: 2px;
+}
+
 /*=============== THEME ===============*/
 .change__theme {
+  background: transparent;
+  border: none;
+  color: inherit;
   font-size: 1.25rem;
   cursor: pointer;
   transition: 0.3s;
@@ -128,7 +154,7 @@ body.light-theme {
   --first-color-alt: hsl(var(--first-hue), 60%, 42%);
   --title-color: hsl(var(--second-hue), 15%, 15%);
   --text-color: hsl(var(--second-hue), 8%, 32%);
-  --text-color-light: hsl(var(--second-hue), 6%, 46%);
+  --text-color-light: hsl(var(--second-hue), 6%, 40%); /* darkened from 46% for stronger contrast headroom */
   --body-color: hsl(var(--second-hue), 100%, 99%);
   --container-color: hsl(var(--second-hue), 24%, 95%); /* Soft premium light-gray container background */
 }
@@ -277,6 +303,11 @@ body.light-theme {
   transition: 0.4s;
   display: flex;
   border-radius: 5rem;
+}
+
+.nav__link:hover {
+  color: var(--first-color);
+  background: hsla(var(--first-hue), var(--sat), var(--lig), 0.12);
 }
 
 /* Active link */
@@ -460,6 +491,10 @@ body.light-theme {
   border: 1px solid var(--first-color);
 }
 
+.button--ghost:hover {
+  border-color: var(--first-color-alt);
+}
+
 /*=============== ABOUT ===============*/
 .about__container {
   row-gap: 2.5rem;
@@ -517,12 +552,18 @@ body.light-theme {
   border-radius: 1.25rem;
   padding: 1.5rem;
   border: 1px solid hsla(var(--first-hue), var(--sat), var(--lig), 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.impact__card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.75rem 1.5rem hsla(var(--second-hue), 48%, 4%, 0.15);
 }
 
 .impact__value {
   display: block;
   color: var(--first-color);
-  font-size: 1.75rem;
+  font-size: var(--h1-font-size);
   font-weight: var(--font-semibold);
   margin-bottom: 0.75rem;
 }
@@ -571,6 +612,7 @@ body.light-theme {
 
 .skills__data {
   display: flex;
+  align-items: center;
   column-gap: 0.5rem;
 }
 
@@ -586,7 +628,13 @@ body.light-theme {
 }
 
 .skills__level {
-  font-size: var(--small-font-size);
+  display: inline-block;
+  margin-top: 0.15rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: hsla(var(--first-hue), var(--sat), var(--lig), 0.12);
+  color: var(--first-color);
+  font-size: var(--tiny-font-size);
 }
 
 /*=============== SERVICES ===============*/
@@ -598,8 +646,14 @@ body.light-theme {
 
 .services__card {
   background-color: var(--container-color);
-  padding: 3rem 1.5rem 1.5em;
+  padding: 3rem 1.5rem 1.5rem;
   border-radius: 1.25rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.services__card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.75rem 1.5rem hsla(var(--second-hue), 48%, 4%, 0.15);
 }
 
 .services__title {
@@ -608,6 +662,10 @@ body.light-theme {
 }
 
 .services__button {
+  background: transparent;
+  border: none;
+  font: inherit;
+  padding: 0;
   color: var(--first-color);
   font-size: var(--small-font-size);
   display: flex;
@@ -648,6 +706,12 @@ body.light-theme {
   max-width: 500px;
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
+  transform: translateY(1rem) scale(0.96);
+  transition: transform 0.35s ease;
+}
+
+.active-modal .services__modal-content {
+  transform: translateY(0) scale(1);
 }
 
 .services__modal-title,
@@ -687,12 +751,22 @@ body.light-theme {
 }
 
 .services__modal-close {
+  background: transparent;
+  border: none;
+  padding: 0;
+  line-height: 1;
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
   font-size: 1.5rem;
   color: var(--first-color);
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.services__modal-close:hover {
+  color: var(--first-color-alt);
+  transform: scale(1.15);
 }
 /*Active modal*/
 
@@ -717,6 +791,7 @@ body.light-theme {
 }
 
 .work__item {
+  font: inherit;
   cursor: pointer;
   color: var(--title-color);
   background-color: var(--container-color);
@@ -838,6 +913,12 @@ body.light-theme {
   width: 100%;
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
+  transform: translateY(1rem) scale(0.96);
+  transition: transform 0.35s ease;
+}
+
+.work__modal.active-modal .work__modal-content {
+  transform: translateY(0) scale(1);
 }
 
 .work__modal-title,
@@ -857,17 +938,33 @@ body.light-theme {
 }
 
 .work__modal-close {
+  background: transparent;
+  border: none;
+  padding: 0;
+  line-height: 1;
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
   font-size: 1.5rem;
   color: var(--first-color);
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.work__modal-close:hover {
+  color: var(--first-color-alt);
+  transform: scale(1.15);
 }
 
 /* Active item work*/
 .active-work {
   background-color: var(--first-color);
+  color: var(--body-color);
+}
+
+/* Keep the active pill readable even when hovered — .work__item:hover
+   otherwise wins on specificity and repaints the label the same as its background */
+.work__item.active-work:hover {
   color: var(--body-color);
 }
 
@@ -882,6 +979,12 @@ body.light-theme {
   padding: 1.75rem;
   border-radius: 1.25rem;
   border: 1px solid hsla(var(--first-hue), var(--sat), var(--lig), 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.architecture__card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.75rem 1.5rem hsla(var(--second-hue), 48%, 4%, 0.15);
 }
 
 .architecture__icon {
@@ -1076,6 +1179,8 @@ body.light-theme {
 
 .footer__title {
   text-align: center;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-semibold);
   margin-bottom: 2rem;
 }
 
@@ -1101,6 +1206,12 @@ body.light-theme {
   border-radius: 0.25rem;
   font-size: 1rem;
   display: inline-flex;
+  transition: 0.4s;
+}
+
+.footer__social-link:hover {
+  transform: translateY(-3px);
+  opacity: 0.85;
 }
 
 .footer__copy {
