@@ -135,6 +135,7 @@
                         <span>60% DB shrink via S3 migration</span>
                         <span>15-minute analytics freshness</span>
                         <span>sub-50ms p95 FastAPI responses</span>
+                        <span>240x faster live-map rendering</span>
                     </div>
                 </div>
 
@@ -202,11 +203,12 @@
                     </div>
 
                     <p class="about__description">
-                        Results-driven Python Backend Engineer with 2+ years of experience designing scalable
-                        backend systems, high-performance REST APIs, and automated data platforms. My work spans Flask,
-                        FastAPI, PostgreSQL, Apache Airflow, Odoo, and AWS services such as EC2, S3, Athena, Redshift,
-                        Lambda, and Secrets Manager. I focus on backend reliability, API security, cloud delivery, and
-                        turning operational problems into measurable engineering wins.
+                        Results-driven Python Backend Engineer with 2+ years of experience architecting scalable,
+                        cloud-native backend systems, high-performance REST APIs, and automated data pipelines. My
+                        work spans Flask, FastAPI, PostgreSQL, Apache Airflow, Odoo, and AWS services such as EC2,
+                        S3, Athena, Redshift, Lambda, and Secrets Manager, with growing experience in LLM integration
+                        and AI-assisted development. I focus on backend reliability, API security, cloud delivery,
+                        and turning operational problems into measurable engineering wins.
                     </p>
 
                     <a href="#contact" class="button about__button-contact">Contact Me</a>
@@ -252,6 +254,14 @@
                         response.
                     </p>
                 </article>
+
+                <article class="impact__card">
+                    <span class="impact__value">240x</span>
+                    <h3 class="impact__title">Faster Live-Map Rendering</h3>
+                    <p class="impact__description">
+                        Optimized a real-time GPS tracking map, cutting page load time from 1.5s to under 15ms.
+                    </p>
+                </article>
             </div>
         </section>
 
@@ -287,7 +297,7 @@
                                 <i class='bx bxs-badge-check'></i>
 
                                 <div>
-                                    <h3 class="skills__name">PostgreSQL / MySQL / Redshift</h3>
+                                    <h3 class="skills__name">PostgreSQL / MySQL / Redshift / Redis</h3>
                                     <span class="skills__level">Advanced</span>
                                 </div>
                             </div>
@@ -298,7 +308,7 @@
                                 <i class='bx bxs-badge-check'></i>
 
                                 <div>
-                                    <h3 class="skills__name">Airflow / ETL / AWS Glue</h3>
+                                    <h3 class="skills__name">Airflow / ETL / AWS Glue / BigQuery</h3>
                                     <span class="skills__level">Advanced</span>
                                 </div>
                             </div>
@@ -321,6 +331,15 @@
                                 </div>
                             </div>
 
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">LLM Integration / AI-Assisted Development</h3>
+                                    <span class="skills__level">Growing</span>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -334,7 +353,7 @@
                                 <i class='bx bxs-badge-check'></i>
 
                                 <div>
-                                    <h3 class="skills__name">AWS (EC2, S3, Lambda, Athena)</h3>
+                                    <h3 class="skills__name">AWS (EC2, S3, Lambda, SNS, Athena)</h3>
                                     <span class="skills__level">Advanced</span>
                                 </div>
                             </div>
@@ -382,6 +401,15 @@
 
                                 <div>
                                     <h3 class="skills__name">Postman / Swagger / OpenAPI</h3>
+                                    <span class="skills__level">Advanced</span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Leaflet.js / Real-Time Maps / Push Notifications (FCM)</h3>
                                     <span class="skills__level">Advanced</span>
                                 </div>
                             </div>
@@ -515,6 +543,14 @@
                                     <p class="services__modal-info">
                                         Improved pipeline observability and reduced manual monitoring effort across
                                         recurring data jobs.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Built a real-time GPS ingestion pipeline on Google BigQuery with push-notification
+                                        delivery via AWS SNS and Firebase Cloud Messaging.
                                     </p>
                                 </li>
                             </ul>
@@ -699,9 +735,9 @@
                 <div class="work__card mix data cloud">
                     <i class='bx bx-git-branch work__symbol'></i>
                     <h3 class="work__title">PostgreSQL to Redshift ETL Pipeline</h3>
-                    <p class="work__tech">Airflow · Athena · Redshift · Incremental Sync</p>
-                    <p class="work__summary">Config-driven pipeline framework for incremental sync, backfills, alerting,
-                        and warehouse delivery.</p>
+                    <p class="work__tech">Airflow · Athena · Redshift · YAML-Config ETL</p>
+                    <p class="work__summary">Modular, config-driven pipeline framework for incremental sync, backfills,
+                        schema evolution, and warehouse delivery.</p>
                     <button type="button" class="work__open">See More <i
                             class='bx bx-right-arrow work__icon' aria-hidden="true"></i></button>
                     <div class="work__modal" role="dialog" aria-modal="true" aria-labelledby="work-modal-title-3">
@@ -714,11 +750,12 @@
                                 movement.</p>
                             <ul class="services__modal-list">
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Stack: Airflow, Athena, Redshift, PostgreSQL, AWS
-                                        SNS.</p>
+                                    <p class="services__modal-info">Stack: Python, Airflow, Athena, Redshift, PostgreSQL,
+                                        AWS SNS.</p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Implemented incremental sync and backfill workflows.
+                                    <p class="services__modal-info">Designed a modular, YAML-config-driven ETL framework
+                                        supporting incremental sync, full backfill, and automatic schema evolution.
                                     </p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
@@ -726,16 +763,16 @@
                                         intervals.</p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Added alert callbacks and schema-aware configuration
-                                        for smoother operations.</p>
+                                    <p class="services__modal-info">Added SLA breach alerting via AWS SNS and Airflow
+                                        callbacks for schema-aware, smoother operations.</p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Designed the framework around modular configuration
-                                        so new tables and sync rules could be added without DAG rewrites.</p>
+                                    <p class="services__modal-info">Improved data-team incident response time by ~60%
+                                        through proactive, automated alerting.</p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Served as the primary data source pattern for
-                                        internal BI dashboards and analytics reporting.</p>
+                                    <p class="services__modal-info">Now serves as the primary data source for 3 internal
+                                        BI dashboards and analytics reporting.</p>
                                 </li>
                             </ul>
                         </div>
@@ -744,10 +781,10 @@
 
                 <div class="work__card mix cloud">
                     <i class='bx bx-bar-chart-alt-2 work__symbol'></i>
-                    <h3 class="work__title">Flask Analytics Dashboard Backend</h3>
-                    <p class="work__tech">Flask · PostgreSQL · Role-Based APIs</p>
-                    <p class="work__summary">Backend service layer for dashboards, filtered reports, and metrics-heavy
-                        internal analytics workflows.</p>
+                    <h3 class="work__title">Inlog Analytics Dashboard — Enterprise BI</h3>
+                    <p class="work__tech">Flask · PostgreSQL · CanvasJS · RBAC</p>
+                    <p class="work__summary">Multi-module BI platform serving real-time, role-based analytics across
+                        5 business units.</p>
                     <button type="button" class="work__open">See More <i
                             class='bx bx-right-arrow work__icon' aria-hidden="true"></i></button>
                     <div class="work__modal" role="dialog" aria-modal="true" aria-labelledby="work-modal-title-4">
@@ -755,32 +792,34 @@
                             <button type="button" class="work__modal-close" aria-label="Close">
                                 <i class='bx bx-x' aria-hidden="true"></i>
                             </button>
-                            <h3 class="work__modal-title" id="work-modal-title-4">Flask Analytics Dashboard Backend</h3>
-                            <p class="work__modal-description">Backend API layer for dashboard metrics, charts, and
-                                filtered reports.</p>
+                            <h3 class="work__modal-title" id="work-modal-title-4">Inlog Analytics Dashboard — Enterprise BI Platform</h3>
+                            <p class="work__modal-description">Enterprise BI platform transforming raw Odoo ERP data
+                                into drilldown KPIs.</p>
                             <ul class="services__modal-list">
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Stack: Flask, Python, PostgreSQL.</p>
+                                    <p class="services__modal-info">Stack: Flask, PostgreSQL, Raw SQL, CanvasJS,
+                                        JavaScript, Docker, AWS EC2.</p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Built role-based endpoints and optimized query
-                                        routes.</p>
+                                    <p class="services__modal-info">Engineered a multi-module Flask backend serving
+                                        RESTful APIs to a dynamic frontend.</p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Integrated with real-time business dashboards and
-                                        analytics consumers.</p>
+                                    <p class="services__modal-info">Built a session-based filtering engine for
+                                        real-time data segmentation across 5 business units (Sales, Marketing, HR,
+                                        Logistics, Helpdesk).</p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Focused on filtered reporting, clean response
-                                        contracts, and performance-oriented queries.</p>
+                                    <p class="services__modal-info">Enforced RBAC for role-specific dashboard access
+                                        across all business units.</p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Structured endpoints around dashboard use-cases such
-                                        as metrics, chart feeds, and parameterized reporting queries.</p>
+                                    <p class="services__modal-info">Authored complex PostgreSQL queries with CTEs,
+                                        window functions, and aggregations to power drilldown KPIs and trend
+                                        benchmarks.</p>
                                 </li>
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
-                                    <p class="services__modal-info">Emphasized maintainable backend layering so
-                                        analytics features could be extended without API regressions.</p>
+                                    <p class="services__modal-info">Deployed on AWS EC2 with Docker behind Nginx.</p>
                                 </li>
                             </ul>
                         </div>
@@ -872,6 +911,52 @@
                                 <li class="services__modal-item"><i class='bx bx-check-circle'></i>
                                     <p class="services__modal-info">Improved operational visibility by connecting
                                         logistics workflows with real-time tracking and KYC verification flows.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work__card mix api data cloud">
+                    <i class='bx bx-map-pin work__symbol'></i>
+                    <h3 class="work__title">Real-Time GPS Live Tracking System</h3>
+                    <p class="work__tech">BigQuery · Flask · Leaflet.js · AWS SNS/FCM</p>
+                    <p class="work__summary">Live vehicle-tracking map with push notifications, tuned for
+                        production-scale performance.</p>
+                    <button type="button" class="work__open">See More <i
+                            class='bx bx-right-arrow work__icon' aria-hidden="true"></i></button>
+                    <div class="work__modal" role="dialog" aria-modal="true" aria-labelledby="work-modal-title-7">
+                        <div class="work__modal-content">
+                            <button type="button" class="work__modal-close" aria-label="Close">
+                                <i class='bx bx-x' aria-hidden="true"></i>
+                            </button>
+                            <h3 class="work__modal-title" id="work-modal-title-7">Real-Time GPS Live Tracking System</h3>
+                            <p class="work__modal-description">High-frequency GPS ingestion pipeline with a live,
+                                customer-facing tracking map.</p>
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">Stack: Python, Flask, Google BigQuery, AWS
+                                        SNS/FCM, Leaflet.js.</p>
+                                </li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">Built a real-time vehicle-tracking pipeline using
+                                        BigQuery for high-frequency GPS ingestion.</p>
+                                </li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">Delivered a live, customer-facing shipment-tracking
+                                        map with Flask and Leaflet.js.</p>
+                                </li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">Sent push notifications via AWS SNS and Firebase
+                                        Cloud Messaging to iOS and Android driver apps.</p>
+                                </li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">Optimized the map for production scale, cutting
+                                        page load time from 1.5s to under 15ms.</p>
+                                </li>
+                                <li class="services__modal-item"><i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">Reduced map-rendering overhead by ~240x on long
+                                        routes, validated with automated end-to-end tests.</p>
                                 </li>
                             </ul>
                         </div>
